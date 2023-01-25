@@ -57,4 +57,11 @@ Finally breaking code out of this toy function that's already too large and conc
 
 which will return the =prefix= because it's specified as a named return value to which I say, "Ewww!"  This is a language feature that I would discourage using because it makes it harder to reason about the code inplace.  You need to be aware of the call signature in order to interpret the =return= statement rather than simply interpreting the =return= statement by itself.
 
+See https://github.com/golang/go/wiki/CodeReviewComments#named-result-parameters for more details.
+
 * Integers
+#+begin_quote
+When you have more than one argument of the same type (in our case two integers) rather than having =(x int, y int)= you can shorten it to =(x, y int)=.
+#+end_quote
+
+I found this unclear. I thought it was saying =x= is any type rather than =int=.
