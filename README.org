@@ -2,3 +2,17 @@
 Following along with https://quii.gitbook.io/learn-go-with-tests/
 
 * Hello, World
+- Had to turn on yasnippet minor mode to have golang completions work
+- I have my editor configured to display tabs as two spaces to make golang more accessible for me
+- I have opted to edit files directly rather than tangling so that I can get the benefit of LSP integration in golang
+  - [ ] There may be a good way to make it work inside Org-mode but I haven't investigated
+  - Pretty cool to be able to test compiler errors in the editor without needing to run the tests :sunglasses:
+
+** Go modules
+- [ ] Can I get =go test= to report using dots?
+
+To see a module's godocs:
+
+#+begin_src sh
+  godoc -http :8000
+#+end_src
