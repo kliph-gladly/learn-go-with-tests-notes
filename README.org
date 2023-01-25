@@ -16,3 +16,16 @@ To see a module's godocs:
 #+begin_src sh
   godoc -http :8000
 #+end_src
+
+** Constants
+
+** Can I watch and rerun tests?
+- Not through =go test= directly :(
+- I can do some shenanigans with =fswatch= (an OS X tool, similar tools exist for other operating systems)
+- Install with =brew install fswatch=
+
+#+begin_src sh
+  fswatch -o ./*.go | xargs -n1 -I{} go test
+#+end_src
+
+See https://emcrisostomo.github.io/fswatch/usage.html
