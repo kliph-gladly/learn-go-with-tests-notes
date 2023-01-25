@@ -38,3 +38,21 @@ This is interesting:
 This is a feature of Playwright that I prefer as well.
 
 Doesn't look like Go has syntactic sugar for default values for function parameters :( https://stackoverflow.com/questions/19612449/default-value-in-gos-method#comment77755758_23650312
+
+** One last refactor?
+Finally breaking code out of this toy function that's already too large and concerned with too much.  The book illustrates that there are implicit returns in golang
+#+begin_src go
+  func greetingPrefix(language string) (prefix string) {
+    switch language {
+    case french:
+      prefix = frenchHelloPrefix
+    case spanish:
+      prefix = spanishHelloPrefix
+    default:
+      prefix = englishHelloPrefix
+    }
+    return
+  }
+#+end_src
+
+which will return the =prefix= because it's specified as a named return value to which I say, "Ewww!"  This is a language feature that I would discourage using because it makes it harder to reason about the code inplace.  You need to be aware of the call signature in order to interpret the =return= statement rather than simply interpreting the =return= statement by itself.
