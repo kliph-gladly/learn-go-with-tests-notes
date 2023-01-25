@@ -79,3 +79,5 @@ Ah =make= seems sort of like what I want.  =make= and =range= feel a little bit 
 #+begin_src sh
   go test -cover
 #+end_src
+
+Leaving off at https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/arrays-and-slices#write-the-test-first-4
