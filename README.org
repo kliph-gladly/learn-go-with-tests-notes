@@ -6,7 +6,7 @@ Following along with https://quii.gitbook.io/learn-go-with-tests/
 - I have my editor configured to display tabs as two spaces to make golang more accessible for me
 - I have opted to edit files directly rather than tangling so that I can get the benefit of LSP integration in golang
   - [ ] There may be a good way to make it work inside Org-mode but I haven't investigated
-  - Pretty cool to be able to test compiler errors in the editor without needing to run the tests :sunglasses:
+  - Pretty cool to be able to see compiler errors in the editor without needing to run the tests :sunglasses:
 
 ** Go modules
 - [ ] Can I get =go test= to report using dots?
@@ -69,4 +69,13 @@ I found this unclear. I thought it was saying =x= is any type rather than =int=.
 ** Implementing Repeat
 I'd rather use reduce to construct a string like this.  The standard =strings= library https://cs.opensource.google/go/go/+/refs/tags/go1.19.5:src/strings/strings.go;l=528 uses a chunked approach to writing into a =Builder=. Doesn't look like Go has functional constructs like =reduce=.  Maybe there's a more idiomatically functional way to do this rather than imperatively iterating through a loop and concatenating strings.
 
-Ah =make= seems sort of like what I want.  =make= and =range= feel a little bit like initializing a collection and then =map=ping over a collection to transform it into another collection.
+Ah =make= seems sort of like what I want.  =make= and =range= feel a little bit like initializing a collection and then mapping over a collection to transform it into another collection.
+
+* Arrays And Slices
+** Refactoring to use a slice instead of an array of defined size (tuple?)
+- [ ] If a function consumes a slice, why can't an array of defined size be passed to it?
+  - It seems like something that a [[https://clojure.org/reference/sequences][seq-like abstraction]] could handle
+** Coverage
+#+begin_src sh
+  go test -cover
+#+end_src
