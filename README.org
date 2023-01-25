@@ -17,8 +17,6 @@ To see a module's godocs:
   godoc -http :8000
 #+end_src
 
-** Constants
-
 ** Can I watch and rerun tests?
 - Not through =go test= directly :(
 - I can do some shenanigans with =fswatch= (an OS X tool, similar tools exist for other operating systems)
@@ -29,3 +27,14 @@ To see a module's godocs:
 #+end_src
 
 See https://emcrisostomo.github.io/fswatch/usage.html
+
+** Hello, world... again
+This is interesting:
+
+#+begin_quote
+=t.Helper()= is needed to tell the test suite that this method is a helper. By doing this when it fails the line number reported will be in our function call rather than inside our test helper. This will help other developers track down problems easier.
+#+end_quote
+
+This is a feature of Playwright that I prefer as well.
+
+Doesn't look like Go has syntactic sugar for default values for function parameters :( https://stackoverflow.com/questions/19612449/default-value-in-gos-method#comment77755758_23650312
