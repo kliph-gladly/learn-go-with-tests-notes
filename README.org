@@ -83,3 +83,5 @@ Ah =make= seems sort of like what I want.  =make= and =range= feel a little bit 
 In order to avoid the kind of error-prone boundary checking, I almost always find it more advantageous to express this sort of computation as a reduce operation over the inputs.
 
 * Structs, methods and interfaces
+
+Made it to https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/structs-methods-and-interfaces#write-enough-code-to-make-it-pass
