@@ -6,4 +6,5 @@ use (
 	./integers
 	./iteration
   ./structs
+  ./learn
 )

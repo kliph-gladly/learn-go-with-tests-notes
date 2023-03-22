@@ -1,6 +1,12 @@
 * Learn Go With Tests
 Following along with https://quii.gitbook.io/learn-go-with-tests/
 
+** Other resources
+*** Simplicity in Go
+- https://fasterthanli.me/articles/i-want-off-mr-golangs-wild-ride
+  - Interesting how this differs from Rich Hickey's [[https://www.youtube.com/watch?v=SxdOUGdseq4][Simple made Easy]]
+  - Interesting how Go appears to expose all the under-the-hood stuff and leaves it up  to the dev to sort it out
+
 * Hello, World
 - Had to turn on yasnippet minor mode to have golang completions work
 - I have my editor configured to display tabs as two spaces to make golang more accessible for me
@@ -85,3 +91,19 @@ In order to avoid the kind of error-prone boundary checking, I almost always fin
 * Structs, methods and interfaces
 
 Made it to https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/structs-methods-and-interfaces#write-enough-code-to-make-it-pass
+
+* An Aside: Understanding go.sum and go.mod file in Go (Golang)
+Following along at https://golangbyexample.com/go-mod-sum-module/
+
+- =go.mod= specifies the root of a Go module.
+  - It defines the module import path
+  - The version of go with which the module was created
+  - Dependency requirements for the module (including specific versions)
+
+- =go.sum= lists the checksums of direct and indirect dependencies
+
+#+begin_quote
+Also please note that both go.mod as well as go.sum file should be checked into the Version Control System (VCS) such as git
+#+end_quote
+
+Note: when following the example, I needed to add =./learn= to the root =go.work= to make the imported dependency resolve properly.  Before I did this, I repeatedly got an error saying that no required module provides the package, even after following the =go get= instructions to install the package.
