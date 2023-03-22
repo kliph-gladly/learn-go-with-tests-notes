@@ -125,3 +125,6 @@ Also please note that both go.mod as well as go.sum file should be checked into 
 Note: when following the example, I needed to add =./learn= to the root =go.work= to make the imported dependency resolve properly.  Before I did this, I repeatedly got an error saying that no required module provides the package, even after following the =go get= instructions to install the package.
 
 - [ ] It's not clear to me why I would need to install a package's indirect dependencies.  If they're not necessary to run the code that I'm imported, why would I need them.  If they are necessary, then why aren't they specified among the package's direct dependencies?
+
+* Pointers & errors
+Leaving off at https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/pointers-and-errors#write-the-test-first

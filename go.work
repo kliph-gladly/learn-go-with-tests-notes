@@ -7,4 +7,5 @@ use (
 	./iteration
   ./structs
   ./learn
+  ./pointers
 )
