@@ -13,7 +13,7 @@ Following along with https://quii.gitbook.io/learn-go-with-tests/
 - I have opted to edit files directly rather than tangling so that I can get the benefit of LSP integration in golang
   - [ ] There may be a good way to make it work inside Org-mode but I haven't investigated
   - Pretty cool to be able to see compiler errors in the editor without needing to run the tests :sunglasses:
-
+- I have had to run =M-x projectile-invalidate-cache= occasionally to get Projectile to pick up the =.dir-locals= config for jumping between tests and impls.
 ** Go modules
 - [ ] Can I get =go test= to report using dots?
 
@@ -90,7 +90,23 @@ In order to avoid the kind of error-prone boundary checking, I almost always fin
 
 * Structs, methods and interfaces
 
-Made it to https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/structs-methods-and-interfaces#write-enough-code-to-make-it-pass
+Go doesn't support function dispatch based on the argument type, something like multimethods in Clojure.
+
+According to the book:
+#+begin_quote
+We have two choices:
+- You can have functions with the same name declared in different packages. So we could create our Area(Circle) in a new package, but that feels overkill here.
+- We can define methods on our newly defined types instead.
+#+end_quote
+
+The first choice seems like wasteful overhead.  Let's see what's up with methods.  Oh you just bind them on the struct.  That's not that complicated, but it forces tying abstract implementations to concrete types :/.  It seems like this would not allow for the flexibility that you can achieve with Clojure protocols.  Interfaces get some of the way there, just like they do in Clojure, but cannot be extended by consumers without opening up the initial implementation.
+
+The book's author "would like to reiterate how great the compiler is here".  Go's compiler messages have been largely helpful.  It's not as fancy as Elm, but it seems pretty good.  It's as good or better than Typescript's compiler, but not as good as Haskell and other fancy compilers.
+
+The syntax for declaring methods binds the method to a =receiver=.
+
+** Public and private fields on structs
+The public/private distinction applies to packages.  So a capitalized field is publicly available in an external package, a lower-case field is not.  I had previously thought that the public/private distinct applied to each entity itself.
 
 * An Aside: Understanding go.sum and go.mod file in Go (Golang)
 Following along at https://golangbyexample.com/go-mod-sum-module/
