@@ -134,3 +134,10 @@ Variables copy on calling in golang (maybe this isn't the right way to describe 
 =Stringer= is how golang refers to the string representation of an struct.
 
 https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully
+
+* Maps
+Following along at https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/maps
+
+The =map= keyword defines a mapping of =map[keyType]valueType= which is definitely a syntax that a parser may be able to parse.
+
+Maps in golang return a second value so you can tell whether a value was present in the dictionary.  The book says "This property allows us to differentiate between a word that doesn't exist and a word that just doesn't have a definition."  It's not clear to me when a word doesn't exist and how this helps differentiate.  Maybe they're referring to a "word that doesn't have a definition" as an entry in the map that has a value of empty string.
