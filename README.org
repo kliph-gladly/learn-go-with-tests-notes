@@ -132,3 +132,5 @@ Following along at https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/p
 Variables copy on calling in golang (maybe this isn't the right way to describe it, thinking of the [[https://en.wikipedia.org/wiki/Copy-on-write#:~:text=Copy%2Don%2Dwrite%20(COW,copy%22%20operation%20on%20modifiable%20resources.][copy on write]] sense).  In order to update state in a struct, you need to pass a pointer to the struct in memory so that updates mutate the original struct rather than a copy.  To achieve this, we use the =*Foo= receiver type =func (f *Foo)=.  Struct pointers are [[https://go.dev/ref/spec#Method_values][automatically dereferenced]] which leads to some convenience at the cost of some confusion (explicit vs. implicit dereference).
 
 =Stringer= is how golang refers to the string representation of an struct.
+
+https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully
