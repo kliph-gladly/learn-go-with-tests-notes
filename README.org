@@ -141,3 +141,32 @@ Following along at https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/m
 The =map= keyword defines a mapping of =map[keyType]valueType= which is definitely a syntax that a parser may be able to parse.
 
 Maps in golang return a second value so you can tell whether a value was present in the dictionary.  The book says "This property allows us to differentiate between a word that doesn't exist and a word that just doesn't have a definition."  It's not clear to me when a word doesn't exist and how this helps differentiate.  Maybe they're referring to a "word that doesn't have a definition" as an entry in the map that has a value of empty string.
+
+Remember what we just learned about pointers and all that.  Forget it.  Maps are different.  The whole map doesn't copy when passed as an argument, just the pointers.  [[https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go][Under the hood]] their values are just pointers to underlying structures.
+
+Confusing?  Sure.  More detail than I asked for when I went to look up my value in an aggregate?  Yep.  Simple enough to learn and develop heuristics around.  I guess.
+
+#+begin_quote
+A gotcha with maps is that they can be a nil value. A nil map behaves like an empty map when reading, but attempts to write to a nil map will cause a runtime panic. You can read more about maps [[https://blog.golang.org/go-maps-in-action][here]].
+
+Therefore, you should never initialize an empty map variable:
+#+end_quote
+
+#+begin_src go
+  // don't do
+  var m map[string]string
+
+
+  // instead do
+  var m = map[string]string{}
+
+  // or
+
+  var m = make(map[string]string)
+#+end_src
+
+#+begin_quote
+Both approaches create an empty =hash map= and point =m= at it. Which ensures that you will never get a runtime panic.
+#+end_quote
+
+Leaving off at https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/maps#refactor-2
