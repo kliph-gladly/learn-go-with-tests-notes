@@ -1,12 +1,14 @@
 package lintexperiment
 
 import (
+	"crypto/rand"
 	"fmt"
-	"math/rand"
-	"time"
+	"math/big"
 )
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
-	fmt.Println(rand.Int())
+	maxRandom := 100
+	randomLimit := big.NewInt(int64(maxRandom))
+	randomInt, _ := rand.Int(rand.Reader, randomLimit)
+	fmt.Println(randomInt.Int64())
 }
