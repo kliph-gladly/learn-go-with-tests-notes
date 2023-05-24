@@ -24,7 +24,7 @@ func (w *Wallet) Balance() Bitcoin {
 	return w.balance
 }
 
-var ErrInsufficientFunds = errors.New("Insufficient funds in your balance")
+var ErrInsufficientFunds = errors.New("insufficient funds in your balance")
 
 func (w *Wallet) Withdraw(amount Bitcoin) error {
 	fmt.Printf("address of balance in Withdraw is %p \n", &w.balance)
