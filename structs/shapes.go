@@ -21,7 +21,7 @@ type Triangle struct {
 }
 
 func Perimeter(rectangle Rectangle) float64 {
-	return 2 * (rectangle.Width + rectangle.Height)
+	return 2 * (rectangle.Width + rectangle.Height) //nolint:gomnd // It's just the formula for perimiter
 }
 
 func (r Rectangle) Area() float64 {
@@ -33,5 +33,5 @@ func (c Circle) Area() float64 {
 }
 
 func (t Triangle) Area() float64 {
-	return (t.Base * t.Height) * 0.5
+	return (t.Base * t.Height) * 0.5 //nolint:gomnd // It's just the formula for area of a triangle
 }
