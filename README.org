@@ -170,3 +170,32 @@ Both approaches create an empty =hash map= and point =m= at it. Which ensures th
 #+end_quote
 
 Leaving off at https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/maps#refactor-2
+
+* Custom JSON Marshalling
+https://calvinfeng.gitbook.io/gonotebook/idioms/custom-json-marshaling from https://sagan.slack.com/archives/C02SUTFE3/p1684425228308799
+
+* Linting golang
+Following along at https://freshman.tech/linting-golang/
+
+** Running on this project
+#+begin_src sh
+  golangci-lint run
+#+end_src
+
+In order to make this work, I needed to define a module in the root of my project.  I think this is related to https://github.com/golangci/golangci-lint/issues/2654 .
+
+#+begin_src sh
+  go mod init
+
+  go mod tidy
+
+  echo "package main" > main.go
+
+  go work use .
+#+end_src
+
+However it doesn't appear to recursively check the submodules.  I needed to pass a specific directory each time I ran the linter.
+* Mutating an external variable from within an anonymous function
+
+* Writing a custom linter
+https://arslan.io/2019/06/13/using-go-analysis-to-write-a-custom-linter/

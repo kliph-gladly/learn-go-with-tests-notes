@@ -1,12 +1,14 @@
 go 1.19
 
 use (
+	.
 	./arrays
 	./hello
 	./integers
 	./iteration
-  ./structs
-  ./learn
-  ./pointers
-  ./maps
+	./learn
+	./lintexperiment
+	./maps
+	./pointers
+	./structs
 )
