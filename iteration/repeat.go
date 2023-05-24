@@ -2,12 +2,13 @@ package iteration
 
 import "strings"
 
-const REPEAT_COUNT = 5
+const RepeatCount = 5
 
 func Repeat(character string) string {
-	output := make([]string, REPEAT_COUNT)
+	output := make([]string, RepeatCount)
 	for i := range output {
 		output[i] = character
 	}
+
 	return strings.Join(output, "")
 }
