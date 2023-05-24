@@ -195,6 +195,9 @@ In order to make this work, I needed to define a module in the root of my projec
 #+end_src
 
 However it doesn't appear to recursively check the submodules.  I needed to pass a specific directory each time I ran the linter.
+
+** Enabling in Emacs
+I needed to install the https://github.com/weijiangan/flycheck-golangci-lint package locally as I couldn't find it on the normal package repos I use.  I had to use https://www.flycheck.org/en/latest/user/syntax-checkers.html#configuring-checker-chains to set up the =golangci-lint= as the next checker following =lsp=.
 * Mutating an external variable from within an anonymous function
 
 * Writing a custom linter

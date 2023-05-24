@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	rand.Seed(time.Now().UnixNano()) //nolint:staticcheck // this is a lint experiment
-	fmt.Println(rand.Int())          //nolint:gosec // this is a lint experiment
+	rand.Seed(time.Now().UnixNano())
+	fmt.Println(rand.Int())
 }
