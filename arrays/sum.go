@@ -5,14 +5,23 @@ func Sum(numbers []int) int {
 	for _, number := range numbers {
 		sum += number
 	}
+
 	return sum
 }
 
 func SumAll(numbersToSum ...[]int) []int {
-	var sums []int
+	if len(numbersToSum) == 0 {
+		return []int{}
+	}
 
-	for _, numbers := range numbersToSum {
-		sums = append(sums, Sum(numbers))
+	if len(numbersToSum[0]) == 0 {
+		return []int{0}
+	}
+
+	var sums = make([]int, len(numbersToSum[0]))
+
+	for i, numbers := range numbersToSum {
+		sums[i] = Sum(numbers)
 	}
 
 	return sums
@@ -20,6 +29,7 @@ func SumAll(numbersToSum ...[]int) []int {
 
 func SumAllTails(numbersToSum ...[]int) []int {
 	var sums []int
+
 	for _, numbers := range numbersToSum {
 		if len(numbers) == 0 {
 			sums = append(sums, 0)
@@ -28,5 +38,6 @@ func SumAllTails(numbersToSum ...[]int) []int {
 			sums = append(sums, Sum(tail))
 		}
 	}
+
 	return sums
 }
